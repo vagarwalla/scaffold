@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0e0d0a;
+  --foreground: #fff4d6;
+  --card: #1c1a14;
+  --card-border: #2a2720;
+  --muted: #c9b894;
+  --accent: #2ee0c0;
+  --accent-hover: #00b894;
+  --accent-orange: #ff8a4a;
+  --accent-violet: #a08aff;
+  --input-bg: #1c1a14;
+  --input-border: #2a2720;
+  --overlay: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+  --background: #fff4d6;
+  --foreground: #1a1714;
+  --card: #ffe9b8;
+  --card-border: #e6d5a8;
+  --muted: #5a4f42;
+  --accent: #00b894;
+  --accent-hover: #2ee0c0;
+  --accent-orange: #ff5a1f;
+  --accent-violet: #6240ff;
+  --input-bg: #ffe9b8;
+  --input-border: #e6d5a8;
+  --overlay: rgba(0, 0, 0, 0.2);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-violet: var(--accent-violet);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --font-sans: var(--font-space-grotesk);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
