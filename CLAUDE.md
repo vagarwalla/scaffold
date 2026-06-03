@@ -28,3 +28,8 @@ Brief description of the project.
 - `src/app/api/` — API routes
 - `src/lib/supabase.ts` — Supabase client singleton
 - `src/components/` — React components
+
+## Infra & global config
+Generated from [`vagarwalla/scaffold`](https://github.com/vagarwalla/scaffold). Personal global config and infrastructure — the global `CLAUDE.md`, DNS, accounts, deploy runbooks, setup scripts — live in **[`vagarwalla/infra`](https://github.com/vagarwalla/infra)**, the single source of truth.
+
+If this project introduces anything infra-level (a new subdomain, a Supabase table convention, an env-var pattern, a deploy quirk, a reusable script), record it in `vagarwalla/infra` — not only here.

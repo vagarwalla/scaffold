@@ -40,3 +40,6 @@ vercel domains add subdomain.vaidehiagarwalla.com
 ```
 
 Then add CNAME in Namecheap: `subdomain` -> `cname.vercel-dns.com.`
+
+## Infra
+Global config and infrastructure live in [`vagarwalla/infra`](https://github.com/vagarwalla/infra). New projects from this template should record infra-level changes there.
