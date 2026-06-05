@@ -41,5 +41,16 @@ vercel domains add subdomain.vaidehiagarwalla.com
 
 Then add CNAME in Namecheap: `subdomain` -> `cname.vercel-dns.com.`
 
+## Likely project types
+
+Projects spun up from this template tend to fall into a few buckets:
+
+- **Personal full-stack web apps** — small Next.js + Supabase tools on `*.vaidehiagarwalla.com` subdomains (e.g. jars, sf-recs).
+- **Nonprofit volunteering work** — website design/redesign and small web projects built pro bono for nonprofit organizations (landing pages, content sites, simple data/intake tools).
+- **Other plausible work:**
+  - **Marketing / informational sites** — single-page or small multi-page sites for events, portfolios, or community groups.
+  - **Lightweight data dashboards** — Supabase-backed views for tracking, reporting, or admin (e.g. volunteer rosters, donation/inventory tracking).
+  - **Reusable UI components & design-system pieces** — theme tokens, shared layout/components extracted from one project for reuse across others.
+
 ## Infra
 Global config and infrastructure live in [`vagarwalla/infra`](https://github.com/vagarwalla/infra). New projects from this template should record infra-level changes there.
