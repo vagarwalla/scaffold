@@ -29,6 +29,15 @@ Brief description of the project.
 - `src/lib/supabase.ts` — Supabase client singleton
 - `src/components/` — React components
 
+## Definition of Done (runnable signal required)
+Every plan or task in a project built from this scaffold MUST define DONE as an objective, machine-checkable signal — not prose. Do not start implementation until it is specified. Default for this stack:
+
+- `npm run build` exits 0
+- `npm run lint` passes clean
+- The affected page/route renders correctly in the Vercel preview deploy (or local `npm run dev`)
+
+Add task-specific checks on top (e.g. "API route returns 200 with seeded data"). Autonomous skills (`ce-work`, `lfg`, `executing-plans`) should run against this signal and not declare success until it passes.
+
 ## Infra & global config
 Generated from [`vagarwalla/scaffold`](https://github.com/vagarwalla/scaffold). Personal global config and infrastructure — the global `CLAUDE.md`, DNS, accounts, deploy runbooks, setup scripts — live in **[`vagarwalla/infra`](https://github.com/vagarwalla/infra)**, the single source of truth.
 
