@@ -41,6 +41,22 @@ vercel domains add subdomain.vaidehiagarwalla.com
 
 Then add CNAME in Namecheap: `subdomain` -> `cname.vercel-dns.com.`
 
+## Claude Code on the web
+
+`.claude/hooks/session-start.sh` installs dependencies before a web session
+starts, so a fresh cloud container can build and test immediately instead of
+spending its first minutes on `npm install`. It is generic — it detects
+`package.json` / `requirements.txt` / `pyproject.toml` — so it can be vendored
+into any repo unmodified.
+
+Projects created from this template inherit it. A hook only takes effect from
+the **default branch**.
+
+See [`docs/claude-code-on-the-web.md`](docs/claude-code-on-the-web.md) for how
+sessions, containers and scheduled Routines actually work — including why a
+scheduled Routine runs with the laptop shut, and the two things that most often
+go wrong with them.
+
 ## Likely project types
 
 Projects spun up from this template tend to fall into a few buckets:
