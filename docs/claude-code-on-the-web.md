@@ -60,6 +60,15 @@ A cloud Routine can fire in one of three shapes:
 4. **Notifications are opt-in per Routine** (push / email), and only for
    fresh-session Routines.
 
+### When a session stops on a usage limit
+
+A session cut off by the account's usage limit does not restart itself, and —
+because it is not running — it cannot schedule anything after the fact. So any
+long unattended run **arms an hourly check-back Routine (`0 * * * *`) before it
+starts**, and deletes it when the work is done. Full patterns, including the
+account-level watchdog for parallel sessions, are in
+[`solutions/workflow-issues/resuming-sessions-after-usage-limits.md`](solutions/workflow-issues/resuming-sessions-after-usage-limits.md).
+
 ## The SessionStart hook
 
 `.claude/hooks/session-start.sh`, registered in `.claude/settings.json`. It

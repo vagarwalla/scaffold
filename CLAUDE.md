@@ -38,10 +38,20 @@ Every plan or task in a project built from this scaffold MUST define DONE as an 
 
 Add task-specific checks on top (e.g. "API route returns 200 with seeded data"). Autonomous skills (`ce-work`, `lfg`, `executing-plans`) should run against this signal and not declare success until it passes.
 
-## Infra & global config
-Generated from [`vagarwalla/scaffold`](https://github.com/vagarwalla/scaffold). Personal global config and infrastructure — the global `CLAUDE.md`, DNS, accounts, deploy runbooks, setup scripts — live in **[`vagarwalla/infra`](https://github.com/vagarwalla/infra)**, the single source of truth.
+## Long unattended runs — survive a usage limit
 
-If this project introduces anything infra-level (a new subdomain, a Supabase table convention, an env-var pattern, a deploy quirk, a reusable script), record it in `vagarwalla/infra` — not only here.
+A session cut off by the account's usage limit does not restart itself, and cannot schedule anything once it is stopped. So **before** starting any long autonomous run (`lfg`, `ce-work`, `executing-plans`, a big refactor), arm an hourly check-back Routine that fires back into this session:
+
+- `create_trigger({name: "resume after usage limit — <task>", cron_expression: "0 * * * *", initiation: "own_followup", prompt: "Check-back: if the previous turn stopped on a usage/session limit, resume the task and keep going. If the work is finished, delete this Routine and say nothing."})`
+- Firings during the limited window do nothing; the first one after the limit resets continues the run with full conversation context.
+- **The run's last step is `delete_trigger`** — an hourly Routine that outlives its task burns usage on nothing.
+
+Patterns, gotchas and the account-level watchdog: [`docs/solutions/workflow-issues/resuming-sessions-after-usage-limits.md`](docs/solutions/workflow-issues/resuming-sessions-after-usage-limits.md).
+
+## Infra & global config
+Generated from [`vagarwalla/scaffold`](https://github.com/vagarwalla/scaffold). Personal global config and infrastructure — the global `CLAUDE.md`, DNS, accounts, deploy runbooks, setup scripts, and the `docs/` runbooks — live in **[`vagarwalla/scaffold`](https://github.com/vagarwalla/scaffold)** itself, the single source of truth. (`vagarwalla/infra` does not exist; this pointed at it until 2026-09-01.)
+
+If this project introduces anything infra-level (a new subdomain, a Supabase table convention, an env-var pattern, a deploy quirk, a reusable script), record it in `vagarwalla/scaffold` — not only here.
 
 ## Reporting back to V
 
