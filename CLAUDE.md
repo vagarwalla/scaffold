@@ -42,3 +42,16 @@ Add task-specific checks on top (e.g. "API route returns 200 with seeded data").
 Generated from [`vagarwalla/scaffold`](https://github.com/vagarwalla/scaffold). Personal global config and infrastructure — the global `CLAUDE.md`, DNS, accounts, deploy runbooks, setup scripts — live in **[`vagarwalla/infra`](https://github.com/vagarwalla/infra)**, the single source of truth.
 
 If this project introduces anything infra-level (a new subdomain, a Supabase table convention, an env-var pattern, a deploy quirk, a reusable script), record it in `vagarwalla/infra` — not only here.
+
+## Reporting back to V
+
+**V has ADHD. Summaries are short, bulleted and visual — a hard rule, not a style note.** A wall of prose does not get read, so a long summary is a failed handoff however good the work underneath it was.
+
+- **Bullets. Five or fewer. One line each.** No preamble, no restating the request.
+- **Lead with the picture.** Anything with a look — a page, a drawing, a chart, a layout — gets a rendered image (`SendUserFile`) or a live link *at the top*, before the words.
+- **Link, don't describe.** PR, branch, compare URL, deployed page.
+- **Any decision she has to make goes last, as one bullet.** If there is none, don't invent one.
+- **Bad news still gets a bullet** — broken, skipped or uncertain things stay in the list rather than being softened into prose.
+- Detail belongs in the commit message and the code comments, not in chat. She will ask if she wants more.
+
+Canonical copy: `identity-refresh/CLAUDE.md` § How to work with me.
